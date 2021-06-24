@@ -1,0 +1,17 @@
+{
+    "name": "redbox/module-givex-gift-card",
+    "description": "Magento 2 module to Givex Gift Card integration",
+    "license": "proprietary",
+    "require": {
+        "magento/framework": "*"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Redbox\\GivexGiftCard\\": ""
+        }
+    },
+    "version": "1.0.0"
+}

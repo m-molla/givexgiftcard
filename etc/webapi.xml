@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <!--add givex gift card account for guest-->
+    <route url="/V1/carts/guest-carts/:cartId/addGivexGiftCard" method="POST">
+        <service class="Redbox\GivexGiftCard\Api\GuestGiftCardAccountManagementInterface" method="addGiftCard"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <!--check givex gift cart account for guest-->
+    <route url="/V1/carts/guest-carts/:cartId/checkGivexGiftCard/:giftCardCode" method="GET">
+        <service class="Redbox\GivexGiftCard\Api\GuestGiftCardAccountManagementInterface" method="checkGiftCard"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    
+    <!--delete gift cart account for guest-->
+    <route url="/V1/carts/guest-carts/:cartId/givexGiftCards/:giftCardCode" method="DELETE">
+        <service class="Redbox\GivexGiftCard\Api\GuestGiftCardAccountManagementInterface" method="deleteByQuoteId"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+</routes>

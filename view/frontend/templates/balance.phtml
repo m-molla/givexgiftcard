@@ -1,0 +1,49 @@
+<?php
+/** @var \Magento\Framework\View\Element\Template $block */
+?>
+<form class="form givex_balance"
+      action="<?php echo $block->getUrl('redbox_givexgiftcard/balance/check') ?>"
+      id="custom-form"
+      method="post"
+      data-hasrequired="<?php echo __('* Required Fields') ?>"
+      data-mage-init='{"validation":{}}'>
+
+    <fieldset class="fieldset">
+        <legend class="legend"><span><?= $block->escapeHtml(__('Check Givex Balance')) ?></span></legend>
+        <div class="field gift_card_number required">
+            <label class="label"
+                   for="gift_card_number"><span><?= $block->escapeHtml(__('Gift Card Number')) ?></span></label>
+            <div class="control">
+                <input name="gift_card_number"
+                       id="gift_card_number"
+                       title="<?= $block->escapeHtmlAttr(__('Gift Card Number')) ?>"
+                       value=""
+                       class="input-text"
+                       type="text"
+                       data-validate="{required:true}"/>
+            </div>
+        </div>
+        <div class="field gift_card_security_code required">
+            <label class="label"
+                   for="gift_card_security_code"><span><?= $block->escapeHtml(__('Gift Card Security Code')) ?></span></label>
+            <div class="control">
+                <input name="gift_card_security_code"
+                       id="gift_card_number"
+                       title="<?= $block->escapeHtmlAttr(__('Gift Card Security Code')) ?>"
+                       value=""
+                       class="input-text"
+                       type="text"
+                       data-validate="{required:true}"/>
+            </div>
+        </div>
+        <?= $block->getChildHtml('form.additional.info') ?>
+    </fieldset>
+    <div class="actions-toolbar">
+        <div class="primary">
+            <input type="hidden" name="hideit" id="hideit" value=""/>
+            <button type="submit" title="<?= $block->escapeHtmlAttr(__('Submit')) ?>" class="action submit primary">
+                <span><?= $block->escapeHtml(__('Submit')) ?></span>
+            </button>
+        </div>
+    </div>
+</form>

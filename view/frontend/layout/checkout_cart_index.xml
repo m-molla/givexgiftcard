@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        
+        <referenceContainer name="cart.summary">
+            <block class="Redbox\GivexGiftCard\Block\Checkout\Cart\Giftcardaccount"
+                   template="Redbox_GivexGiftCard::cart/block.phtml"
+                   name="checkout.cart.redbox_givexgitcardaccount"
+                   as="givexgiftcard"
+                   before="checkout.cart.methods.bottom">
+                <block class="Magento\Captcha\Block\Captcha" name="captcha" cacheable="false">
+                    <action method="setFormId">
+                        <argument name="formId" xsi:type="string">givex_gift_code_request</argument>
+                    </action>
+                    <action method="setImgWidth">
+                        <argument name="width" xsi:type="string">230</argument>
+                    </action>
+                    <action method="setImgHeight">
+                        <argument name="width" xsi:type="string">50</argument>
+                    </action>
+                </block>
+            </block>
+        </referenceContainer>
+        <referenceBlock name="head.components">
+            <block class="Magento\Framework\View\Element\Js\Components"
+                   name="captcha_page_head_components"
+                   template="Magento_Captcha::js/components.phtml"/>
+        </referenceBlock>
+    </body>
+</page>

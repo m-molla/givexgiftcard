@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Redbox\GivexGiftCard\Api\ConnectorInterface"
+                type="Redbox\GivexGiftCard\Model\Api\Connector"/>
+    <preference for="Redbox\GivexGiftCard\Api\Data\RequestInterface"
+                type="Redbox\GivexGiftCard\Model\Api\Request"/>
+
+    <preference for="Redbox\GivexGiftCard\Api\GetBalanceInterface" type="Redbox\GivexGiftCard\Model\ResourceModel\Api\GetBalance"/>
+    <preference for="Redbox\GivexGiftCard\Api\GivexRequestBuilderInterface" type="Redbox\GivexGiftCard\Model\Api\GivexRequestBuilder"/>
+    <preference for="Redbox\GivexGiftCard\Api\GivexResponseParserInterface" type="Redbox\GivexGiftCard\Model\Api\GivexResponseParser"/>
+    <preference for="Redbox\GivexGiftCard\Api\Data\ResponseInterface" type="Redbox\GivexGiftCard\Model\Api\Response"/>
+    <preference for="Redbox\GivexGiftCard\Api\GivexConnectorInterface" type="Redbox\GivexGiftCard\Model\Api\GivexConnector"/>
+
+    <preference for="Redbox\GivexGiftCard\Api\GuestGiftCardAccountManagementInterface" type="Redbox\GivexGiftCard\Model\GuestGiftCardAccountManagement"/>
+    <preference for="Redbox\GivexGiftCard\Api\GiftCardAccountManagementInterface" type="Redbox\GivexGiftCard\Model\GiftCardAccountManagement"/>
+    <preference for="Redbox\GivexGiftCard\Api\GiftCardAccountManagerInterface" type="Redbox\GivexGiftCard\Model\Manager"/>
+    <preference for="Redbox\GivexGiftCard\Api\Data\GiftCardDataInterface" type="Redbox\GivexGiftCard\Model\GiftCardData"/>
+    <preference for="Redbox\GivexGiftCard\Api\Data\GiftCardAccountInterface" type="Redbox\GivexGiftCard\Model\GiftCardAccount"/>
+    
+    <type name="Magento\Quote\Model\Cart\TotalsConverter">
+        <plugin name="givexGiftCardAmountTotal" type="Redbox\GivexGiftCard\Model\Plugin\TotalsConverter" />
+    </type>
+    
+    <type name="Magento\Quote\Model\Quote\TotalsCollector">
+        <plugin name="givexQuoteGiftCardAmountUpdater" type="Redbox\GivexGiftCard\Model\Plugin\TotalsCollector" />
+    </type>
+    
+</config>

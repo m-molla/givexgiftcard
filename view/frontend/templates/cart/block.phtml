@@ -1,0 +1,77 @@
+<?php
+/**
+ * @var \Redbox\GivexGiftCard\Block\Checkout\Cart\Giftcardaccount $block
+ * @var \Magento\Framework\View\Helper\SecureHtmlRenderer $secureRenderer
+ */
+?>
+<div class="block givexgiftcard"
+     id="block-givexgiftcard"
+     data-mage-init='{"collapsible":{"openedState": "active", "saveState": false}}'>
+    <div data-role="title" class="title">
+        <strong id="block-givexgiftcard-heading" role="heading" aria-level="2">
+            <?= $block->escapeHtml(__('Givex Gift Cards')) ?>
+        </strong>
+    </div>
+    <div data-role="content" class="content" aria-labelledby="block-givexgiftcard-heading">
+        <div id="givexgiftcard-balance-lookup"></div>
+        <span id="givex-gc-please-wait" class="please-wait load indicator"
+              data-text="<?= $block->escapeHtml(__('This won\'t take long . . .')) ?>">
+            <span><?= $block->escapeHtml(__('This won\'t take long . . .')) ?></span>
+        </span>
+        <?=
+        /* @noEscape */ $secureRenderer->renderTag(
+                'style',
+                [],
+                '#givex-gc-please-wait { display: none;}',
+                false
+        );
+        ?>
+        <form class="form givexgiftcard add" id="givexgiftcard-form"
+              action="<?= $block->escapeUrl($block->getUrl('redbox_givexgiftcard/cart/add')) ?>" method="post"
+              data-mage-init='{"validation": {},"giftCard": {
+              "giftCardCodeSelector": "#givexgiftcard-code",
+              "giftCardFormSelector": "#givexgiftcard-form",
+              "checkStatus": "givex.action.check",
+              "giftCardStatusUrl": "<?=
+              $block->escapeHtml(
+                      $block->getUrl('redbox_givexgiftcard/cart/quickCheck', ['_secure' => true])
+              )
+              ?>",
+              "giftCardStatusId": "#givexgiftcard-balance-lookup",
+              "giftCardSpinnerId": "#gigc-please-wait",
+              "messages": ".page.messages .messages"
+              }}'>
+            <div class="fieldset">
+                <div class="field">
+                    <label class="label" for="givexgiftcard-code">
+                        <span><?= $block->escapeHtml(__('Enter the gift card code')) ?></span>
+                    </label>
+                    <div class="control">
+                        <input class="input-text" type="text" id="givexgiftcard-code" name="givexgiftcard_code"
+                               data-validate="{'required-entry':true}" value=""
+                               placeholder="<?= $block->escapeHtml(__('Enter the gift card code')) ?>" />
+                    </div>
+                </div>
+                <div class="actions-toolbar">
+                    <div class="primary">
+                        <button class="givex action add primary"
+                                type="submit"
+                                value="<?= $block->escapeHtml(__('Add Gift Card')) ?>">
+                            <span><?= $block->escapeHtml(__('Add Gift Card')) ?></span>
+                        </button>
+                    </div>
+                    <div class="secondary">
+                        <button class="givex action check"
+                                type="button"
+                                value="<?= $block->escapeHtml(__('Check Gift Card status and balance')) ?>">
+                            <span><?= $block->escapeHtml(__('Check Gift Card status and balance')) ?></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="fieldset">
+<?= $block->getChildHtml('captcha') ?>
+            </div>
+        </form>
+    </div>
+</div>

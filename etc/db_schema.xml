@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    
+    <table name="quote" >
+        <column xsi:type="text" name="givex_gift_cards" nullable="true" comment="GiveX Gift Cards"/>
+        <column xsi:type="decimal" name="givex_gift_cards_amount" scale="4" precision="20" unsigned="false" nullable="true"
+                comment="GiveX Gift Cards Amount"/>
+        <column xsi:type="decimal" name="givex_base_gift_cards_amount" scale="4" precision="20" unsigned="false"
+                nullable="true" comment="GiveX Base Gift Cards Amount"/>
+        <column xsi:type="decimal" name="givex_gift_cards_amount_used" scale="4" precision="20" unsigned="false"
+                nullable="true" comment="GiveX Gift Cards Amount Used"/>
+        <column xsi:type="decimal" name="givex_base_gift_cards_amount_used" scale="4" precision="20" unsigned="false"
+                nullable="true" comment="GiveX Base Gift Cards Amount Used"/>
+    </table>
+    <table name="quote_address">
+        <column xsi:type="decimal" name="givex_gift_cards_amount" scale="4" precision="20" unsigned="false" nullable="true"
+                comment="GiveX Gift Cards Amount"/>
+        <column xsi:type="decimal" name="givex_base_gift_cards_amount" scale="4" precision="20" unsigned="false"
+                nullable="true" comment="GiveX Base Gift Cards Amount"/>
+        <column xsi:type="text" name="givex_gift_cards" nullable="true" comment="GiveX Gift Cards"/>
+        <column xsi:type="text" name="givex_used_gift_cards" nullable="true" comment="GiveX Used Gift Cards"/>
+    </table>
+    <table name="sales_order">
+        <column xsi:type="text" name="givex_gift_cards" nullable="true" comment="GiveX Gift Cards"/>
+        <column xsi:type="decimal" name="givex_base_gift_cards_amount" scale="4" precision="20" unsigned="false"
+                nullable="true" comment="GiveX Base Gift Cards Amount"/>
+        <column xsi:type="decimal" name="givex_gift_cards_amount" scale="4" precision="20" unsigned="false" nullable="true"
+                comment="GiveX Gift Cards Amount"/>
+        <column xsi:type="decimal" name="givex_base_gift_cards_invoiced" scale="4" precision="20" unsigned="false"
+                nullable="true" comment="GiveX Base Gift Cards Invoiced"/>
+        <column xsi:type="decimal" name="givex_gift_cards_invoiced" scale="4" precision="20" unsigned="false" nullable="true"
+                comment="GiveX Gift Cards Invoiced"/>
+        <column xsi:type="decimal" name="givex_base_gift_cards_refunded" scale="4" precision="20" unsigned="false"
+                nullable="true" comment="GiveX Base Gift Cards Refunded"/>
+        <column xsi:type="decimal" name="givex_gift_cards_refunded" scale="4" precision="20" unsigned="false" nullable="true"
+                comment="GiveX Gift Cards Refunded"/>
+    </table>
+    <table name="sales_invoice">
+        <column xsi:type="decimal" name="givex_base_gift_cards_amount" scale="4" precision="20" unsigned="false"
+                nullable="true" comment="GiveX Base Gift Cards Amount"/>
+        <column xsi:type="decimal" name="gift_cards_amount" scale="4" precision="20" unsigned="false" nullable="true"
+                comment="GiveX Gift Cards Amount"/>
+    </table>
+    <table name="sales_creditmemo">
+        <column xsi:type="decimal" name="givex_base_gift_cards_amount" scale="4" precision="20" unsigned="false"
+                nullable="true" comment="GiveX Base Gift Cards Amount"/>
+        <column xsi:type="decimal" name="givex_ift_cards_amount" scale="4" precision="20" unsigned="false" nullable="true"
+                comment="GiveX Gift Cards Amount"/>
+    </table>
+</schema>
